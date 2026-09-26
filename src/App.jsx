@@ -1,4 +1,4 @@
-import { fetchPhoto, fetchVideo } from "./api/mediaApi"
+import { fetchGif, fetchPhoto, fetchVideo } from "./api/mediaApi"
 
 const App = () => {
   return (
@@ -12,10 +12,17 @@ const App = () => {
 
 
       <button onClick={async () => {
-        const data = await fetchVideo('cat')
+        const data = await fetchVideo('fish')
         console.log(data.data.videos);
       }
       }>Get Video</button>
+
+      <button onClick={async () => {
+        const data = await fetchGif('dog')
+        console.log(data);
+      }
+      }>Get GIF</button>
+      
     </div>
   )
 }
