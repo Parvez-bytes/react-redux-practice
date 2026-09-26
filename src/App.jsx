@@ -1,28 +1,10 @@
 import { fetchGif, fetchPhoto, fetchVideo } from "./api/mediaApi"
+import SearchBar from "./components/SearchBar"
 
 const App = () => {
   return (
-    <div>
-      <button onClick={async () => {
-        const data = await fetchPhoto('cat')
-        console.log(data);
-      }
-
-      }>Get Photo</button>
-
-
-      <button onClick={async () => {
-        const data = await fetchVideo('fish')
-        console.log(data.data.videos);
-      }
-      }>Get Video</button>
-
-      <button onClick={async () => {
-        const data = await fetchGif('dog')
-        console.log(data);
-      }
-      }>Get GIF</button>
-      
+    <div className="h-screen text-white w-full bg-gray-950 flex gap-2">
+      <SearchBar />
     </div>
   )
 }
