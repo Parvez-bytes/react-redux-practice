@@ -45,11 +45,11 @@ const ResultGrid = () => {
                         id: item.id,
                         type: 'gif',
                         title: item.title || 'GIF',
-                        thumbnail: item.media_formats.tinygif.url,
-                        src: item.media_formats.gif.url
+                        thumbnail: item.images.fixed_width.url,
+                        src: item.images.original.url
                     }))
                 }
-                // console.log(data);
+                console.log(data);
                 dispatch(setResults(data))
             }
             catch (err) {
@@ -64,12 +64,11 @@ const ResultGrid = () => {
     if (loading) return <h1 className="text-5xl text-center text-yellow-800">Loading...</h1>
 
     return (
-        <div>
+        <div className="grid grid-cols-5 gap-6 px-10 py-6">
             {results.map((item, idx) => {
                 return (
                     <div key={idx}>
-                        <ResultCard />
-
+                        <ResultCard item={item} />
                     </div>
                 )
             })}
