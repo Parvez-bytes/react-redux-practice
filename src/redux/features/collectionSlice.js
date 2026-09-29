@@ -50,5 +50,5 @@ const collectionSlice = createSlice({
     }
 })
 
-export  const {addCollection, removeCollection, cleearCollection, addedToast} = collectionSlice.actions
+export  const {addCollection, removeCollection, cleearCollection, addedToast, removeToast} = collectionSlice.actions
 export default collectionSlice.reducer

@@ -1,5 +1,13 @@
+import { useDispatch } from "react-redux"
+import { removeCollection, removeToast } from "../redux/features/collectionSlice"
 
 const CollectionCard = ({ item }) => {
+    
+    const dispatch =useDispatch()
+    const removeFromCollection =(item)=>{
+        dispatch(removeCollection(item.id));
+        dispatch(removeToast());
+    }
     return (
         <div className="relative w-full h-64 rounded overflow-hidden">
             {item.type === "photo" ? (
@@ -19,8 +27,7 @@ const CollectionCard = ({ item }) => {
             <div className="absolute bottom-0 left-0 w-full flex justify-between items-center p-3">
                 <p className="text-white text-sm">{item.title}</p>
                 <button onClick={() => {
-                    console.log("remove");
-                    
+                    removeFromCollection(item)
                 }} className="text-white text-sm bg-red-950 p-1 rounded">
                     Remove
                 </button>
