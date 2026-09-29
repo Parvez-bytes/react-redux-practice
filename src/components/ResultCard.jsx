@@ -1,6 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addCollection } from "../redux/features/collectionSlice";
 
 const ResultCard = ({ item }) => {
+  const dispatch =useDispatch()
+
+  const addToCollection = (item)=>{
+    dispatch(addCollection(item))
+  }
+
   return (
     <div className="relative w-full h-64 rounded overflow-hidden">
         {item.type === "photo" ? (
@@ -20,7 +28,9 @@ const ResultCard = ({ item }) => {
         <div className="absolute bottom-0 left-0 w-full flex justify-between items-center p-3">
           <p className="text-white text-sm">{item.title}</p>
 
-          <p className="text-white text-sm bg-blue-950 p-1 rounded">Save</p>
+          <button onClick={()=>{
+            addToCollection(item)
+          }} className="text-white text-sm bg-blue-950 p-1 rounded">Save</button>
         </div>
     </div>
   );
