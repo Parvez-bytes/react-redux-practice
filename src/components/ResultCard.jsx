@@ -1,12 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addCollection } from "../redux/features/collectionSlice";
+import { addCollection, addedToast } from "../redux/features/collectionSlice";
+import {toast} from 'react-toastify'
 
 const ResultCard = ({ item }) => {
   const dispatch =useDispatch()
 
   const addToCollection = (item)=>{
     dispatch(addCollection(item))
+    dispatch(addedToast())
   }
 
   return (
